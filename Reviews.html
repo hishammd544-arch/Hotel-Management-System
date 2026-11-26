@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Monitor employee performance and customer feedback">
+  <title>Staff Reviews &amp; Performance | Hotel Management System</title>
+  <link rel="stylesheet" href="css/Admin.css">
+</head>
+<body>
+
+  <header class="header">
+    <a href="Admin.html" class="logo">Hotel Management System</a>
+    <div class="user-info">
+      <span class="badge admin">Admin</span>
+      <span>Welcome, Admin</span>
+      <a href="login.html" class="btn btn-small btn-light">Logout</a>
+    </div>
+  </header>
+
+  <nav class="sidebar">
+    <h3>Main Menu</h3>
+    <a href="Admin.html">Dashboard</a>
+    <a href="Room.html">Room Management</a>
+    <a href="Staff.html">Staff Management</a>
+    <a href="Sales.html">Monthly Sales</a>
+    <a href="Complaints.html">Complaints</a>
+    <a href="Maintenance.html">Maintenance</a>
+    <a href="Reviews.html" class="active">Staff Reviews</a>
+  </nav>
+
+  <main class="container">
+
+    <section>
+      <h2 class="page-title">Staff Performance and Reviews</h2>
+      <p class="page-subtitle">Monitor employee performance and customer feedback.</p>
+    </section>
+
+    <section>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Total Reviews</div>
+          <div class="stat-number" id="statTotalReviews">0</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">Positive Reviews</div>
+          <div class="stat-number" id="statPositive">0</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">Negative Reviews</div>
+          <div class="stat-number" id="statNegative">0</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">Overall Rating</div>
+          <div class="stat-number" id="statOverallRating">0 / 5</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="card">
+        <h3>Customer Reviews</h3>
+        <div class="search-bar">
+          <input type="text" id="reviewSearch" placeholder="Search by review ID, staff ID, name or feedback..." onkeyup="renderReviews()">
+          <select id="reviewTypeFilter" onchange="renderReviews()">
+            <option value="All">All review types</option>
+            <option value="Positive">Positive</option>
+            <option value="Negative">Negative</option>
+          </select>
+        </div>
+        <p class="result-count" id="reviewCount"></p>
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Review ID</th><th>Staff ID</th><th>Staff Name</th><th>Customer Feedback</th><th>Rating</th><th>Review Type</th>
+              </tr>
+            </thead>
+            <tbody id="reviewTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="card">
+        <h3>Negative Feedback Investigation</h3>
+        <p class="result-count" id="investigationCount"></p>
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Investigation ID</th><th>Staff ID</th><th>Staff Name</th><th>Negative Review</th><th>Investigation Status</th><th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="investigationTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="staffAction">
+      <div id="reviewMessage" class="message"></div>
+
+      <div class="card">
+        <h3 id="reviewFormTitle">Admin Review and Action</h3>
+        <form id="reviewForm" onsubmit="return saveReviewAction()">
+          <fieldset>
+            <legend>Investigation &amp; Decision</legend>
+            <table class="form-table">
+              <tr>
+                <td><label for="investigationId">Investigation ID:</label></td>
+                <td>
+                  <input type="text" id="investigationId" placeholder="e.g. I-001">
+                  <span class="error" id="investigationIdError"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="reviewStaffId">Staff ID:</label></td>
+                <td>
+                  <input type="text" id="reviewStaffId" placeholder="e.g. S-002">
+                  <span class="error" id="reviewStaffIdError"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="staffName">Staff Name:</label></td>
+                <td>
+                  <input type="text" id="staffName" placeholder="e.g. Staff One">
+                  <span class="error" id="staffNameError"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="investigationDetails">Investigation Details:</label></td>
+                <td>
+                  <textarea id="investigationDetails" rows="5" placeholder="Write investigation findings..."></textarea>
+                  <span class="error" id="investigationDetailsError"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="investigationStatus">Investigation Status:</label></td>
+                <td>
+                  <select id="investigationStatus">
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                  </select>
+                  <span class="error" id="investigationStatusError"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="adminDecision">Admin Decision:</label></td>
+                <td>
+                  <select id="adminDecision">
+                    <option value="No Action">No Action</option>
+                    <option value="Warning">Warning</option>
+                    <option value="Training Required">Training Required</option>
+                    <option value="Performance Review">Performance Review</option>
+                    <option value="Further Disciplinary Review">Further Disciplinary Review</option>
+                  </select>
+                  <span class="error" id="adminDecisionError"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="adminRemarks">Admin Remarks:</label></td>
+                <td>
+                  <textarea id="adminRemarks" rows="4" placeholder="Optional remarks..."></textarea>
+                  <span class="error" id="adminRemarksError"></span>
+                </td>
+              </tr>
+            </table>
+          </fieldset>
+
+          <input type="submit" id="reviewSaveButton" class="btn" value="Submit Decision">
+          <button type="button" class="btn btn-danger" onclick="resetReviewForm()">Clear</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    &copy; 2026 Hotel Management System &middot; CSC 3215 Web Technologies
+  </footer>
+
+  <script src="js/Reviews.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/data.js"></script>
+
+</body>
+</html>

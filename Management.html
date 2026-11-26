@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Management</title>
+    <link rel="stylesheet" href="css_receptionist/Receptionist.css">
+</head>
+<body>
+    <div id="hotel-navbar"></div>
+    <header>
+    <h2>Hotel Management System</h2>
+    <h3>Receptionist Panel</h3>
+    </header>
+    <main>
+        <h1>Booking Management</h1>
+        <form method="post">
+        <input type="submit"name="all_bookings"value="All Bookings">
+         <input type="submit"name="checked_in"value="Checked-in">
+          <input type="submit"name="checked_out"value="Checked-out">
+        <input type="submit"name="cancelled"value="Cancelled">
+        <br><br>
+            <input type="search"name="search"placeholder="Search by booking ID,guest name,room number...">
+            <input type="submit"value="Search">
+            <select name="date">
+                <option value="">All Dates</option>
+                <option value="today">Today</option>
+                 <option value="week">This Week</option>
+                <option value="month">This Month</option>
+            </select>
+        <br><br>
+            <table border="1"cellpadding="10">
+                <tr>
+                <th>Booking ID</th>
+                    <th>Guest Name</th>
+                     <th>Room No</th>
+                      <th>Check-in</th>
+                     <th>Check-out</th>
+                     <th>Guest Count</th>
+                     <th>Status</th>
+                    <th>Action</th>
+        </tr>
+        <tr>
+            <td>BK-001</td>
+                <td>Guest One</td>
+                <td>101</td>
+                    <td>31-10-2026</td>
+                     <td>02-11-2026</td>
+                     <td>2</td>
+                    <td>Confirmed</td>
+                    <td>
+                        <input type="button"value="View">
+                          <input type="button"value="Edit">
+                        <input type="button"value="Delete">
+                    </td>
+        </tr>
+        <tr>
+            <td>BK-002</td>
+                <td>Guest Two</td>
+                    <td>203</td>
+                      <td>31-10-2026</td>
+                <td>03-11-2026</td>
+                <td>1</td>
+                    <td>Checked-in</td>
+            <td>
+                    <input type="button"value="View">
+                    <input type="button"value="Edit">
+                    <input type="button"value="Delete">
+            </td>
+                </tr>
+            </table>
+            <br>
+            <p>Total Bookings:5</p>
+            <input type="button"value="Previous">
+             <input type="button"value="1">
+             <input type="button"value="2">
+             <input type="button"value="3">
+            <input type="button"value="Next">
+        </form>
+    </main>
+    <footer>
+        <p>Hotel Management System-Receptionist Panel</p>
+    </footer>
+<script src="js_receptionist/Navigation.js"></script>
+</body>
+</html>

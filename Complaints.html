@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View and manage customer complaints of the Hotel Management System">
+  <title>Customer Complaints | Hotel Management System</title>
+  <link rel="stylesheet" href="css/Admin.css">
+</head>
+<body>
+
+  <header class="header">
+    <a href="Admin.html" class="logo">Hotel Management System</a>
+    <div class="user-info">
+      <span class="badge admin">Admin</span>
+      <span>Welcome, Admin</span>
+      <a href="login.html" class="btn btn-small btn-light">Logout</a>
+    </div>
+  </header>
+
+  <nav class="sidebar">
+    <h3>Main Menu</h3>
+    <a href="Admin.html">Dashboard</a>
+    <a href="Room.html">Room Management</a>
+    <a href="Staff.html">Staff Management</a>
+    <a href="Sales.html">Monthly Sales</a>
+    <a href="Complaints.html" class="active">Complaints</a>
+    <a href="Maintenance.html">Maintenance</a>
+    <a href="Reviews.html">Staff Reviews</a>
+  </nav>
+
+  <main class="container">
+
+    <section>
+      <h2 class="page-title">Customer Complaints</h2>
+      <p class="page-subtitle">View customer complaints, check complaint details and take necessary actions.</p>
+    </section>
+
+    <section>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Total Complaints</div>
+          <div class="stat-number" id="statTotal">0</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">Pending</div>
+          <div class="stat-number" id="statPending">0</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">In Progress</div>
+          <div class="stat-number" id="statInProgress">0</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">Resolved</div>
+          <div class="stat-number" id="statResolved">0</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="card">
+        <h3>All Customer Complaints</h3>
+        <div class="search-bar">
+          <input type="text" id="complaintSearch" placeholder="Search by ID, customer name, room or issue..." onkeyup="renderComplaints()">
+          <select id="complaintStatusFilter" onchange="renderComplaints()">
+            <option value="All">All statuses</option>
+            <option value="Pending">Pending</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Resolved">Resolved</option>
+          </select>
+        </div>
+        <p class="result-count" id="complaintCount"></p>
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Complaint ID</th><th>Customer Name</th><th>Room Number</th><th>Complaint</th><th>Date</th><th>Status</th><th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="complaintTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="complaintDetails">
+      <div id="complaintMessage" class="message"></div>
+
+      <div class="card">
+        <h3 id="complaintFormTitle">Complaint Details</h3>
+        <form id="complaintForm" onsubmit="return saveComplaint()">
+          <fieldset>
+            <legend>Complaint Information</legend>
+            <table class="form-table">
+              <tr>
+                <td><label for="complaintId">Complaint ID:</label></td>
+                <td>
+                  <input type="text" id="complaintId" placeholder="e.g. C-001">
+                  <span class="error" id="complaintIdError"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="customerName">Customer Name:</label></td>
+                <td>
+                  <input type="text" id="customerName" placeholder="e.g. Guest One">
+                  <span class="error" id="customerNameError"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="roomNumber">Room Number:</label></td>
+                <td>
+                  <input type="text" id="roomNumber" placeholder="e.g. 204">
+                  <span class="error" id="roomNumberError"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="complaintDate">Complaint Date:</label></td>
+                <td>
+                  <input type="date" id="complaintDate">
+                  <span class="error" id="complaintDateError"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="complaintType">Complaint Type:</label></td>
+                <td>
+                  <select id="complaintType">
+                    <option value="">-- Select Type --</option>
+                    <option value="Room Service">Room Service</option>
+                    <option value="Cleanliness">Cleanliness</option>
+                    <option value="Maintenance">Maintenance</option>
+                    <option value="Staff Behaviour">Staff Behaviour</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <span class="error" id="complaintTypeError"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="complaintDetailsText">Complaint Details:</label></td>
+                <td>
+                  <textarea id="complaintDetailsText" rows="5" placeholder="Describe the issue..."></textarea>
+                  <span class="error" id="complaintDetailsTextError"></span>
+                </td>
+              </tr>
+            </table>
+          </fieldset>
+
+          <fieldset>
+            <legend>Admin Response</legend>
+            <table class="form-table">
+              <tr>
+                <td><label for="adminAction">Admin Action:</label></td>
+                <td>
+                  <textarea id="adminAction" rows="4" placeholder="Action taken..."></textarea>
+                  <span class="error" id="adminActionError"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="complaintStatus">Complaint Status:</label></td>
+                <td>
+                  <select id="complaintStatus">
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Resolved">Resolved</option>
+                  </select>
+                  <span class="error" id="complaintStatusError"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="adminRemarks">Admin Remarks:</label></td>
+                <td>
+                  <textarea id="adminRemarks" rows="4" placeholder="Optional remarks..."></textarea>
+                  <span class="error" id="adminRemarksError"></span>
+                </td>
+              </tr>
+            </table>
+          </fieldset>
+
+          <input type="submit" id="complaintSaveButton" class="btn" value="Submit Action">
+          <button type="button" class="btn btn-danger" onclick="resetComplaintForm()">Clear</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    &copy; 2026 Hotel Management System &middot; CSC 3215 Web Technologies
+  </footer>
+
+  <script src="js/Complaints.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/data.js"></script>
+
+</body>
+</html>

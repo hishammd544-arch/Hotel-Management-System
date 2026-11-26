@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Check hotel revenue, expenses and monthly profit">
+  <title>Monthly Sales | Hotel Management System</title>
+  <link rel="stylesheet" href="css/Admin.css">
+</head>
+<body>
+
+  <header class="header">
+    <a href="Admin.html" class="logo">Hotel Management System</a>
+    <div class="user-info">
+      <span class="badge admin">Admin</span>
+      <span>Welcome, Admin</span>
+      <a href="login.html" class="btn btn-small btn-light">Logout</a>
+    </div>
+  </header>
+
+  <nav class="sidebar">
+    <h3>Main Menu</h3>
+    <a href="Admin.html">Dashboard</a>
+    <a href="Room.html">Room Management</a>
+    <a href="Staff.html">Staff Management</a>
+    <a href="Sales.html" class="active">Monthly Sales</a>
+    <a href="Complaints.html">Complaints</a>
+    <a href="Maintenance.html">Maintenance</a>
+    <a href="Reviews.html">Staff Reviews</a>
+  </nav>
+
+  <main class="container">
+
+    <section>
+      <h2 class="page-title">Monthly Sales Overview</h2>
+      <p class="page-subtitle">Check hotel revenue, expenses and monthly profit.
+        <span id="salesReportTime" class="hint"></span>
+      </p>
+    </section>
+
+    <section>
+      <div id="salesMessage" class="message"></div>
+
+      <div class="card">
+        <h3>Filter Report by Month</h3>
+        <form id="salesFilterForm" onsubmit="return generateSalesReport()">
+          <fieldset>
+            <legend>Report Period</legend>
+            <table class="form-table">
+              <tr>
+                <td><label for="salesMonth">Select Month:</label></td>
+                <td>
+                  <input type="month" id="salesMonth">
+                  <span class="error" id="salesMonthError"></span>
+                </td>
+              </tr>
+            </table>
+          </fieldset>
+          <input type="submit" class="btn" value="View Report">
+          <button type="button" class="btn btn-secondary" onclick="resetSalesFilter()">Show All Months</button>
+        </form>
+      </div>
+    </section>
+
+    <section>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Total Revenue (Tk)</div>
+          <div class="stat-number" id="statRevenue">0</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">Total Expenses (Tk)</div>
+          <div class="stat-number" id="statExpenses">0</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">Net Profit (Tk)</div>
+          <div class="stat-number" id="statProfit">0</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">Total Bookings</div>
+          <div class="stat-number" id="statBookings">0</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="card">
+        <h3>Monthly Revenue Records</h3>
+        <div class="search-bar">
+          <input type="text" id="salesSearch" placeholder="Search by month name..." onkeyup="renderSales()">
+        </div>
+        <p class="result-count" id="salesCount"></p>
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Month</th><th>Room Revenue (Tk)</th><th>Other Revenue (Tk)</th><th>Total Revenue (Tk)</th><th>Expenses (Tk)</th><th>Profit (Tk)</th>
+              </tr>
+            </thead>
+            <tbody id="salesTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="card">
+        <h3>Monthly Sales Summary</h3>
+        <div class="result-box">
+          <p>Selected Period: <strong id="summaryMonth">All Months</strong></p>
+          <p>Revenue: <strong id="summaryRevenue">৳ 0</strong></p>
+          <p>Expenses: <strong id="summaryExpenses">৳ 0</strong></p>
+          <p>Profit: <strong id="summaryProfit">৳ 0</strong></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    &copy; 2026 Hotel Management System &middot; CSC 3215 Web Technologies
+  </footer>
+
+  <script src="js/Sales.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/data.js"></script>
+
+</body>
+</html>

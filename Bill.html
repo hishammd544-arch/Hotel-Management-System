@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"content="width=device-width,initial-scale=1.0">
+    <title>Bill</title>
+    <link rel="stylesheet" href="css_receptionist/Receptionist.css">
+</head>
+<body>
+<div id="hotel-navbar"></div>
+<form method="post">
+<table border="1">
+ <tr>
+<td colspan="2">
+    <h2>Hotel Management System</h2>
+    <h3>Bill</h3>
+</td>
+</tr>
+<tr>
+ <td>
+ <label for="search">Search by Booking ID,Guest Name:</label>
+    </td>
+    <td>
+    <input type="text"id="search"name="search"placeholder="Enter Booking ID or Guest Name">
+    <input type="submit"value="Search">
+    <select name="date">
+    <option>All Dates</option>
+ <option>Today</option>
+  <option>This Week</option>
+     <option>This Month</option>
+</select>
+</td>
+</tr><tr>
+    <td>Booking ID</td>
+     <td>BK-001</td>
+    </tr>
+<tr>
+ <td>Guest Name</td>
+<td>Guest One</td>
+</tr>
+<tr>
+  <td>Room No</td>
+  <td>101</td>
+    </tr><tr>
+    <td>Check-out</td>
+    <td>02-10-2026</td>
+    </tr>
+    <tr>
+    <td>
+     <label>Payment Method:</label>
+    </td>
+     <td>
+     <input type="radio"name="payment"value="Cash">Cash
+     <input type="radio"name="payment"value="bKash">bKash
+     <input type="radio"name="payment"value="Card">Card
+</td>
+ </tr>
+ <tr>
+ <td colspan="2">
+  <h3>Charges</h3>
+</td>
+    </tr>
+<tr>
+ <td>Room Charges</td>
+ <td>$8,000</td>
+ </tr> <tr>
+    <td>Airport Service</td>
+ <td>$1,000</td>
+     </tr>
+    <tr>
+  <td>Discount(10%)</td>
+   <td>-$800</td>
+    </tr>
+ <tr>
+  <td>
+    <b>Total Amount</b>
+    </td>
+    <td>
+     <b>$8,200</b>
+    </td>
+    </tr>
+     <tr>
+     <td>   
+    <label for="status">Payment Status:</label>
+    </td>
+ <td>
+             
+    <select id="status"name="status">
+     <option>Paid</option>
+    <option>Pending</option>
+ <option>Unpaid</option>
+ </select>
+</td>
+ </tr> <tr>
+     <td colspan="2">
+<input type="submit"value="Generate Receipt">
+ </td>
+</tr>
+<tr>
+ <td colspan="2">
+      <b>Total Bills:4</b>
+    </td>
+    </tr>
+</table>
+</form>
+<script src="js_receptionist/Navigation.js"></script>
+</body>
+</html>

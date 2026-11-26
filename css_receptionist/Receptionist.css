@@ -1,0 +1,1162 @@
+
+*{
+  margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body{
+font-family:"Segoe UI",Arial,sans-serif;
+font-size:14px;
+line-height:1.5;
+ color:#183153;
+background-color:#eef7fc;
+}
+h1,h2,h3,h4{
+color:#102d67;
+line-height: 1.3;
+}
+{
+color:#1265c5;
+text-decoration:none;
+}
+button,input,select,textarea{
+font-family: inherit;
+}
+.dashboard-layout{
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 230px;
+    min-height: 100vh;
+    background-color: #06213c;
+    color: white;
+    padding: 18px 12px;
+    flex-shrink: 0;
+}
+
+.sidebar h2 {
+    color: white;
+    font-size: 19px;
+    margin-bottom: 3px;
+}
+
+.sidebar p {
+    color: #c6d9ed;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+.sidebar a {
+    display: block;
+    color: #e6f0fb;
+    padding: 11px 13px;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #164d87;
+    color: white;
+}
+
+.sidebar a.active {
+    background-color: #0874ed;
+    color: white;
+}
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 22px;
+    background-color: #f0f8fd;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #d7e7f3;
+}
+
+.topbar h2 {
+    font-size: 22px;
+}
+
+.user-info {
+    color: #174c91;
+    font-size: 13px;
+}
+
+.page-title {
+    font-size: 23px;
+    margin-bottom: 5px;
+}
+
+.page-subtitle {
+    color: #67809a;
+    margin-bottom: 20px;
+}
+
+.page-section {
+    display: none;
+}
+
+.card {
+    background-color: white;
+    border: 1px solid #d4e6f2;
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 18px;
+    box-shadow: 0 3px 10px rgba(30, 75, 115, 0.06);
+}
+
+.card h3 {
+    color: #103775;
+    font-size: 17px;
+    margin-bottom: 14px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid #e1edf5;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.col {
+    flex: 1;
+    min-width: 250px;
+}
+
+.col-wide {
+    flex: 2;
+    min-width: 300px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 13px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background-color: white;
+    border: 1px solid #d4e6f2;
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: 0 3px 10px rgba(30, 75, 115, 0.05);
+    border-left: 4px solid #0874ed;
+}
+
+.stat-card:nth-child(2) {
+    border-left-color: #22a875;
+}
+
+.stat-card:nth-child(3) {
+    border-left-color: #f0a23a;
+}
+
+.stat-card:nth-child(4) {
+    border-left-color: #9563d8;
+}
+
+.stat-card .stat-label {
+    color: #67809a;
+    font-size: 13px;
+}
+
+.stat-card .stat-number {
+    font-size: 27px;
+    font-weight: bold;
+    color: #102d67;
+    margin-top: 5px;
+}
+
+.room-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.room-card {
+    background-color: white;
+    border: 1px solid #d5e6f2;
+    border-radius: 9px;
+    padding: 14px;
+}
+
+.room-card h3 {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.room-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.room-card p {
+    margin: 7px 0;
+    color: #45627e;
+}
+
+.room-card ul {
+    padding-left: 20px;
+    margin-top: 5px;
+}
+
+.room-card li {
+    margin: 4px 0;
+}
+
+.room-card input[type="radio"] {
+    accent-color: #0874ed;
+    margin-right: 6px;
+}
+
+.room-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-size: 13px;
+}
+
+.room-services {
+    margin-top: 10px;
+}
+
+.room-services label {
+    margin-right: 12px;
+}
+
+fieldset {
+    border: 1px solid #d3e3ef;
+    border-radius: 8px;
+    padding: 14px;
+    margin-bottom: 15px;
+    background-color: #ffffff;
+}
+
+legend {
+    color: #123b78;
+    font-weight: bold;
+    padding: 0 7px;
+}
+
+.form-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.form-table td {
+    padding: 7px 5px;
+    vertical-align: top;
+}
+
+.form-table td:first-child {
+    width: 35%;
+}
+
+label {
+    color: #29496a;
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbdce9;
+    border-radius: 6px;
+    font-size: 13px;
+    background-color: white;
+    color: #183153;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #0874ed;
+    box-shadow: 0 0 4px rgba(8, 116, 237, 0.2);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    accent-color: #0874ed;
+    margin-right: 5px;
+}
+
+.option-label {
+    font-weight: normal;
+    margin-right: 12px;
+}
+
+.form-buttons {
+    margin-top: 12px;
+}
+
+.guest-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.booking-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    gap: 12px;
+}
+
+.booking-box {
+    background-color: white;
+    border: 1px solid #d4e6f2;
+    border-radius: 8px;
+    padding: 13px;
+    min-width: 0;
+}
+
+.booking-box h3 {
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.search-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.search-bar input {
+    flex: 2;
+    min-width: 180px;
+}
+
+.search-bar select {
+    flex: 1;
+    min-width: 130px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #0874ed;
+    color: white;
+    border: none;
+    padding: 9px 17px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #075bb9;
+    color: white;
+}
+
+.btn:disabled {
+    background-color: #aab9c8;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background-color: #637d98;
+}
+
+.btn-success {
+    background-color: #1b9b69;
+}
+
+.btn-danger {
+    background-color: #e34c4c;
+}
+
+.btn-light {
+    background-color: #e8f3fc;
+    color: #174c91;
+    border: 1px solid #c9deef;
+}
+
+.btn-small {
+    padding: 5px 11px;
+    font-size: 12px;
+    margin: 2px;
+}
+
+.btn-block {
+    width: 100%;
+    padding: 11px;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    font-size: 13px;
+}
+
+.data-table th {
+    background-color: #e9f4fc;
+    color: #16427e;
+    text-align: left;
+    padding: 11px 9px;
+    white-space: nowrap;
+    border-bottom: 1px solid #d4e5f1;
+}
+
+.data-table td {
+    padding: 10px 9px;
+    border-bottom: 1px solid #e4edf4;
+    color: #365574;
+}
+
+.data-table tbody tr:nth-child(even) {
+    background-color: #f8fbfe;
+}
+
+.data-table tbody tr:hover {
+    background-color: #edf6fd;
+}
+
+.data-table td:first-child,
+.data-table td:last-child {
+    white-space: nowrap;
+}
+
+.data-table td .btn {
+    margin: 2px;
+}
+
+.empty-row {
+    text-align: center;
+    color: #8094a8;
+    padding: 20px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.badge.green {
+    background-color: #d8f5e7;
+    color: #13814f;
+}
+
+.badge.orange {
+    background-color: #fff0d5;
+    color: #c47a12;
+}
+
+.badge.red {
+    background-color: #ffe1e1;
+    color: #c12c2c;
+}
+
+.badge.blue {
+    background-color: #dceeff;
+    color: #1265b5;
+}
+
+.badge.grey {
+    background-color: #e9edf1;
+    color: #536577;
+}
+
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.tabs button {
+    padding: 9px 15px;
+    background-color: #eaf3fb;
+    border: 1px solid #d3e4f1;
+    color: #24527f;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.tabs button.active {
+    background-color: #0874ed;
+    color: white;
+    border-color: #0874ed;
+}
+
+.bill-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 15px;
+}
+
+.bill-details {
+    background-color: #f4faff;
+    border: 1px solid #d5e6f2;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.bill-total {
+    background-color: #dcf8eb;
+    color: #148454;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px;
+    text-align: center;
+    border-radius: 6px;
+    margin-top: 12px;
+}
+
+.message {
+    display: none;
+    padding: 11px 14px;
+    border-radius: 6px;
+    margin-bottom: 14px;
+}
+
+.message.success {
+    background-color: #e0f6e9;
+    color: #176d3c;
+}
+
+.message.error {
+    background-color: #ffe6e6;
+    color: #b32626;
+}
+
+.message.info {
+    background-color: #e3f1ff;
+    color: #16569b;
+}
+
+.error {
+    display: block;
+    color: #d32f2f;
+    font-size: 12px;
+    min-height: 17px;
+}
+
+.hint {
+    color: #8496a8;
+    font-size: 12px;
+}
+
+.result-count {
+    color: #71869b;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    gap: 6px;
+    margin-top: 15px;
+}
+
+.pagination button {
+    border: 1px solid #d2e3ef;
+    background-color: white;
+    color: #1764b2;
+    padding: 7px 11px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pagination button.active {
+    background-color: #0874ed;
+    color: white;
+}
+
+.upload-box {
+    display: block;
+    padding: 8px;
+    border: 1px dashed #a8c7df;
+    border-radius: 6px;
+    text-align: center;
+    color: #1764b2;
+    cursor: pointer;
+    margin: 8px 0;
+}
+
+.upload-box input {
+    display: none;
+}
+
+.filter-box {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.receipt {
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 25px;
+    background-color: white;
+    border: 1px solid #d5e6f2;
+    border-radius: 10px;
+}
+
+.receipt h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.receipt p {
+    padding: 8px 0;
+    border-bottom: 1px solid #e4edf4;
+}
+
+@media (max-width: 1000px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .room-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .booking-layout {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .dashboard-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+    }
+
+    .main-content {
+        padding: 14px;
+    }
+
+    .stats-grid,
+    .room-grid,
+    .guest-grid,
+    .booking-layout,
+    .bill-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .col,
+    .col-wide {
+        min-width: 100%;
+    }
+
+    .data-table {
+        min-width: 650px;
+    }
+}
+
+/*receptionist navigation */
+body {
+    margin: 0;
+    padding-left: 230px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 230px;
+    height: 100vh;
+    overflow-y: auto;
+    background: #4876a3;
+    border-right: 1px solid #164d87;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 18px 12px;
+}
+
+.navbar .brand {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 4px 8px;
+}
+
+.navbar nav {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+}
+
+.navbar nav a {
+    color: #e6f0fb;
+    text-decoration: none;
+    padding: 11px 12px;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.navbar nav a:hover {
+    background: #164d87;
+}
+
+.navbar nav a.active {
+    background: #0874ed;
+    color: white;
+}
+
+.navbar .logout {
+    margin-left: 0;
+}
+
+body > table,
+body > form,
+body > main,
+body > header,
+body > footer {
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+@media (max-width: 900px) {
+    body {
+        padding-left: 0;
+        padding-top: 118px;
+    }
+
+    .navbar {
+        width: 100%;
+        height: auto;
+        max-height: 118px;
+        border-right: none;
+        border-bottom: 1px solid #164d87;
+        gap: 5px;
+        padding: 8px 10px;
+    }
+
+    .navbar .brand {
+        width: 100%;
+        padding: 2px 6px;
+    }
+
+    .navbar nav {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .navbar nav a {
+        padding: 7px 8px;
+    }
+}
+
+/* page layout */
+body {
+    min-height: 100vh;
+    padding: 20px 24px 40px 254px;
+    background: #ffffff;
+    color: #000000;
+}
+
+.navbar {
+    background: #4876a3;
+    border-right: 1px solid #4876a3;
+    box-shadow: none;
+}
+
+.navbar .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+    padding: 4px 8px 10px;
+    border-bottom: 1px solid #ffffff;
+    color: #000000;
+}
+
+.navbar .brand img {
+    display: block;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.navbar .brand span {
+    line-height: 1.3;
+}
+
+.navbar nav a {
+    margin: 2px 0;
+    color: #000000;
+    border-radius: 0;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+    background: #4876a3;
+    color: #000000;
+}
+
+h1, h2, h3, h4, p, td, th, label, legend, footer, a {
+    color: #000000;
+}
+
+body > h1,
+body > h2,
+body > h3,
+body > header:not(.navbar),
+body > main,
+body > form,
+body > table,
+body > footer {
+    width: 100%;
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body > h1,
+body > h2,
+body > h3 {
+    margin-bottom: 12px;
+}
+
+body > header:not(.navbar) {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 12px;
+}
+
+body > header:not(.navbar) h2,
+body > header:not(.navbar) h3 {
+    margin: 0;
+}
+
+body > main,
+body > form {
+    padding: 16px;
+}
+
+body > main,
+body > form,
+body > table,
+body > footer {
+    background: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+body > form {
+    overflow-x: auto;
+}
+
+body > footer {
+    margin-top: 16px;
+    padding: 12px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table[border="1"] {
+    border: 1px solid #000000;
+    border-radius: 0;
+}
+
+th {
+    background: #4876a3;
+    color: #000000;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 9px 10px;
+    border: 1px solid #000000;
+    vertical-align: middle;
+}
+
+tr:nth-child(even) td {
+    background: #ffffff;
+}
+
+body > table td:first-child[width="20%"] {
+    width: 230px;
+    min-width: 230px;
+    background: #ffffff;
+}
+
+body > table td:first-child[width="20%"] img {
+    display: block;
+    width: 88px;
+    height: 88px;
+    margin: 6px auto 12px;
+    object-fit: contain;
+}
+
+body > table td[width="80%"] {
+    padding: 18px;
+}
+
+input,
+select,
+textarea {
+    max-width: 100%;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+input[type="tel"],
+input[type="search"],
+select,
+textarea {
+    min-height: 38px;
+    padding: 7px 9px;
+    border: 1px solid #4876a3;
+    border-radius: 0;
+    background: #ffffff;
+    color: #000000;
+}
+
+input[type="submit"],
+input[type="button"],
+.btn,
+button {
+    min-height: 36px;
+    margin: 3px;
+    padding: 7px 13px;
+    border: 1px solid #4876a3;
+    border-radius: 0;
+    background: #4876a3;
+    color: #000000;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover,
+.btn:hover,
+button:hover {
+    background: #4876a3;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    accent-color: #4876a3;
+}
+
+label {
+    margin-right: 6px;
+    color: #000000;
+}
+
+body > main table img,
+body > form table img {
+    display: block;
+    width: 100%;
+    max-height: 220px;
+    margin: 10px auto;
+    border-radius: 0;
+    object-fit: cover;
+}
+
+body > main table td,
+body > form table td {
+    vertical-align: top;
+}
+
+body > main form table td > input[type="radio"] {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin: 0 6px 0 0;
+    vertical-align: middle;
+}
+
+body > main form table td > label {
+    display: inline-block;
+    margin: 0;
+    vertical-align: middle;
+}
+
+body > main form table td > ul {
+    margin-left: 0;
+    padding-left: 0;
+    list-style-position: inside;
+}
+
+body > main table td[colspan="2"],
+body > form table td[colspan="2"] {
+    width: 100%;
+    background: #ffffff;
+}
+
+body > main table td[colspan="2"] h3,
+body > form table td[colspan="2"] h3 {
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    body {
+        padding: 138px 16px 32px;
+    }
+
+    .navbar {
+        max-height: 122px;
+        box-shadow: none;
+    }
+
+    body > table td:first-child[width="20%"] {
+        width: 180px;
+        min-width: 180px;
+    }
+}
+
+@media (max-width: 700px) {
+    body {
+        padding: 150px 10px 24px;
+    }
+
+    .navbar {
+        max-height: 134px;
+    }
+
+    body > table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    body > table tr {
+        display: table;
+        width: 100%;
+    }
+
+    body > table td[width="20%"],
+    body > table td[width="80%"] {
+        display: block;
+        width: 100%;
+    }
+
+    body > header:not(.navbar) {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+/* Keep the project simple: black text and one blue accent */
+body,
+body * {
+    color: #000000;
+    text-shadow: none;
+}
+
+body {
+    background: #ffffff;
+}
+
+.navbar,
+.navbar nav a:hover,
+.navbar nav a.active,
+th,
+input[type="submit"],
+input[type="button"],
+.btn,
+button {
+    background: #4876a3;
+}
+
+.card,
+.stat-card,
+.room-card,
+.booking-box,
+.bill-details,
+.receipt,
+fieldset,
+table,
+.navbar,
+body > main,
+body > form,
+body > table,
+body > footer {
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.card,
+.stat-card,
+.room-card,
+.booking-box,
+.bill-details,
+.receipt,
+fieldset,
+body > main,
+body > form,
+body > table,
+body > footer {
+    background: #ffffff;
+}
+
+input,
+select,
+textarea {
+    border-color: #4876a3;
+    background: #ffffff;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #666666;
+}

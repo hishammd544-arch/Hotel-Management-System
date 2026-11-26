@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Airport Service</title>
+    <link rel="stylesheet" href="css_receptionist/Receptionist.css">
+</head>
+<body>
+    <div id="hotel-navbar"></div>
+ <h2>Hotel Management System</h2>
+ <h3>Airport Service</h3>
+    <form method="post">
+<table border="1">
+<tr>
+<td>
+  <label>Booking ID</label>
+ </td>
+  <td>
+       <label>Guest Name</label>
+</td>
+  <td>
+  <label>Service Type</label>
+</td>
+<td>
+<label>Date & Time</label>
+</td>
+  <td>
+ <label>Status</label>
+</td>
+<td>
+<label>Action</label>
+</td>
+</tr>
+<tr>
+<td>BK-001</td>
+ <td>Guest One</td>
+<td>Pickup</td>
+<td>02-11-2026 10:00 AM</td>
+<td>Confirmed</td>
+<td>
+ <input type="button"value="Edit">
+<input type="button"value="Cancel">
+    </td>
+</tr><tr>
+<td>BK-002</td>
+<td>Guest Two</td>
+    <td>Drop-off</td>
+ <td>03-11-2026 02:00 PM</td>
+ <td>Pending</td>
+ <td>
+      <input type="button"value="Edit">
+      <input type="button"value="Cancel">
+</td>
+</tr>
+</table>
+<br>
+<h3>Add Airport Service</h3>
+    <table border="1">
+    <tr>
+     <td>
+      <label>Guest Name:</label>
+    </td>
+    <td>
+    <input type="text"name="guest name"placeholder="Enter guest name"required>
+</td>
+</tr>
+<tr>
+ <td>
+ <label>Booking ID:</label>
+</td>
+ <td>
+ <input type="text"name="booking id"placeholder="Enter booking ID"required>
+    </td>
+    </tr>
+<tr>
+   <td>
+<label>Service Type:</label>
+</td>
+    <td>
+  <input type="radio"name="service"value="Pickup"required>Pickup
+         <input type="radio"name="service"value="Drop-off">Drop-off
+    </td>
+ </tr>
+<tr>
+  <td>
+  <label>Date:</label>
+</td>
+ <td>
+  <input type="date"name="date"required>
+ </td>
+</tr>
+    <tr>
+  <td>
+ <label>Time:</label>
+ </td>
+ <td>
+ <input type="time"name="time"required>
+</td>
+ </tr> <tr>
+     <td>
+     <label>Airport Service Charge:</label>
+    </td>
+    <td>
+     $1000
+    </td>
+</tr><tr>
+<td>
+     <label>Status:</label>
+        </td>
+        <td>
+        <select name="status">
+        <option>Pending</option>
+        <option>Confirmed</option>
+        <option>Cancelled</option>
+        </select>
+    </td>
+    </tr>
+    <tr>
+    <td colspan="2"align="center">
+     <input type="submit"value="Add Service">
+     </td>
+    </tr>
+    </table>
+    </form>
+<script src="js_receptionist/Navigation.js"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create, view, update, delete and search hotel room records">
+  <title>Room Management | Hotel Management System</title>
+  <link rel="stylesheet" href="css/Admin.css">
+</head>
+<body>
+
+  <header class="header">
+    <a href="Admin.html" class="logo">Hotel Management System</a>
+    <div class="user-info">
+      <span class="badge admin">Admin</span>
+      <span>Welcome, Admin</span>
+      <a href="login.html" class="btn btn-small btn-light">Logout</a>
+    </div>
+  </header>
+
+  <nav class="sidebar">
+    <h3>Main Menu</h3>
+    <a href="Admin.html">Dashboard</a>
+    <a href="Room.html" class="active">Room Management</a>
+    <a href="Staff.html">Staff Management</a>
+    <a href="Sales.html">Monthly Sales</a>
+    <a href="Complaints.html">Complaints</a>
+    <a href="Maintenance.html">Maintenance</a>
+    <a href="Reviews.html">Staff Reviews</a>
+  </nav>
+
+  <main class="container">
+
+    <section>
+      <h2 class="page-title">Room Management</h2>
+      <p class="page-subtitle">Create, view, edit, delete and search hotel room records.</p>
+    </section>
+
+    <div id="roomMessage" class="message"></div>
+
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <h3 id="roomFormTitle">Add New Room</h3>
+          <form id="roomForm" onsubmit="return saveRoom()">
+            <fieldset>
+              <legend>Room Details</legend>
+              <table class="form-table">
+                <tr>
+                  <td><label for="roomId">Room ID:</label></td>
+                  <td>
+                    <input type="text" id="roomId" placeholder="e.g. R-001">
+                    <span class="error" id="roomIdError"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="roomNumber">Room Number:</label></td>
+                  <td>
+                    <input type="text" id="roomNumber" placeholder="e.g. 101">
+                    <span class="error" id="roomNumberError"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="category">Room Category:</label></td>
+                  <td>
+                    <select id="category">
+                      <option value="">-- Select Category --</option>
+                      <option value="Single">Single</option>
+                      <option value="Double">Double</option>
+                      <option value="Deluxe">Deluxe</option>
+                      <option value="Suite">Suite</option>
+                    </select>
+                    <span class="error" id="categoryError"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="price">Room Price (Tk):</label></td>
+                  <td>
+                    <input type="number" id="price" min="500" placeholder="e.g. 2000">
+                    <span class="error" id="priceError"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="capacity">Room Capacity:</label></td>
+                  <td>
+                    <input type="number" id="capacity" min="1" max="10" placeholder="e.g. 2">
+                    <span class="error" id="capacityError"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="roomStatus">Room Status:</label></td>
+                  <td>
+                    <select id="roomStatus">
+                      <option value="Available">Available</option>
+                      <option value="Booked">Booked</option>
+                      <option value="Under Maintenance">Under Maintenance</option>
+                    </select>
+                    <span class="error" id="roomStatusError"></span>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+
+            <input type="submit" id="roomSaveButton" class="btn" value="Add Room">
+            <button type="button" class="btn btn-secondary" onclick="resetRoomForm()">Cancel</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-wide">
+        <div class="card">
+          <h3>Room Records</h3>
+          <div class="search-bar">
+            <input type="text" id="roomSearch" placeholder="Search by ID, room number or price..." onkeyup="renderRooms()">
+            <select id="roomCategoryFilter" onchange="renderRooms()">
+              <option value="All">All categories</option>
+              <option value="Single">Single</option>
+              <option value="Double">Double</option>
+              <option value="Deluxe">Deluxe</option>
+              <option value="Suite">Suite</option>
+            </select>
+            <select id="roomStatusFilter" onchange="renderRooms()">
+              <option value="All">Any status</option>
+              <option value="Available">Available</option>
+              <option value="Booked">Booked</option>
+              <option value="Under Maintenance">Under Maintenance</option>
+            </select>
+          </div>
+          <p class="result-count" id="roomCount"></p>
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Room ID</th><th>Room Number</th><th>Category</th><th>Price (Tk)</th><th>Capacity</th><th>Status</th><th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="roomTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    &copy; 2026 Hotel Management System &middot; CSC 3215 Web Technologies
+  </footer>
+
+  <script src="js/Room.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/data.js"></script>
+
+</body>
+</html>

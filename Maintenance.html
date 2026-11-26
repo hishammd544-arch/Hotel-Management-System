@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Monitor damaged hotel items and manage repair requests">
+  <title>Maintenance Management | Hotel Management System</title>
+  <link rel="stylesheet" href="css/Admin.css">
+</head>
+<body>
+
+  <header class="header">
+    <a href="Admin.html" class="logo">Hotel Management System</a>
+    <div class="user-info">
+      <span class="badge admin">Admin</span>
+      <span>Welcome, Admin</span>
+      <a href="login.html" class="btn btn-small btn-light">Logout</a>
+    </div>
+  </header>
+
+  <nav class="sidebar">
+    <h3>Main Menu</h3>
+    <a href="Admin.html">Dashboard</a>
+    <a href="Room.html">Room Management</a>
+    <a href="Staff.html">Staff Management</a>
+    <a href="Sales.html">Monthly Sales</a>
+    <a href="Complaints.html">Complaints</a>
+    <a href="Maintenance.html" class="active">Maintenance</a>
+    <a href="Reviews.html">Staff Reviews</a>
+  </nav>
+
+  <main class="container">
+
+    <section>
+      <h2 class="page-title">Maintenance Management</h2>
+      <p class="page-subtitle">Monitor damaged hotel items and manage repair requests.</p>
+    </section>
+
+    <section>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Total Requests</div>
+          <div class="stat-number" id="statTotal">0</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">Pending</div>
+          <div class="stat-number" id="statPending">0</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">In Progress</div>
+          <div class="stat-number" id="statInProgress">0</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">Completed</div>
+          <div class="stat-number" id="statCompleted">0</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="card">
+        <h3>Maintenance Requests</h3>
+        <div class="search-bar">
+          <input type="text" id="maintenanceSearch" placeholder="Search by ID, item, room or reporter..." onkeyup="renderMaintenance()">
+          <select id="maintenanceStatusFilter" onchange="renderMaintenance()">
+            <option value="All">All statuses</option>
+            <option value="Pending">Pending</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </div>
+        <p class="result-count" id="maintenanceCount"></p>
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Report ID</th><th>Damaged Item</th><th>Room Number</th><th>Reported By</th><th>Report Date</th><th>Status</th><th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="maintenanceTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="maintenanceAction">
+      <div id="maintenanceMessage" class="message"></div>
+
+      <div class="card">
+        <h3 id="maintenanceFormTitle">Maintenance Action</h3>
+        <form id="maintenanceForm" onsubmit="return saveMaintenance()">
+          <fieldset>
+            <legend>Damage Information</legend>
+            <table class="form-table">
+              <tr>
+                <td><label for="reportId">Report ID:</label></td>
+                <td>
+                  <input type="text" id="reportId" placeholder="e.g. M-001">
+                  <span class="error" id="reportIdError"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="damagedItem">Damaged Item:</label></td>
+                <td>
+                  <input type="text" id="damagedItem" placeholder="e.g. Air Conditioner">
+                  <span class="error" id="damagedItemError"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="roomNumber">Room Number:</label></td>
+                <td>
+                  <input type="text" id="roomNumber" placeholder="e.g. 204">
+                  <span class="error" id="roomNumberError"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="reportedBy">Reported By:</label></td>
+                <td>
+                  <input type="text" id="reportedBy" placeholder="e.g. Room Service">
+                  <span class="error" id="reportedByError"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="reportDate">Report Date:</label></td>
+                <td>
+                  <input type="date" id="reportDate">
+                  <span class="error" id="reportDateError"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="problemDescription">Problem Description:</label></td>
+                <td>
+                  <textarea id="problemDescription" rows="5" placeholder="Describe the damage..."></textarea>
+                  <span class="error" id="problemDescriptionError"></span>
+                </td>
+              </tr>
+            </table>
+          </fieldset>
+
+          <fieldset>
+            <legend>Repair Update</legend>
+            <table class="form-table">
+              <tr>
+                <td><label for="repairAction">Repair Action:</label></td>
+                <td>
+                  <textarea id="repairAction" rows="4" placeholder="Action taken..."></textarea>
+                  <span class="error" id="repairActionError"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="repairStatus">Repair Status:</label></td>
+                <td>
+                  <select id="repairStatus">
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                  </select>
+                  <span class="error" id="repairStatusError"></span>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="adminRemarks">Admin Remarks:</label></td>
+                <td>
+                  <textarea id="adminRemarks" rows="4" placeholder="Optional remarks..."></textarea>
+                  <span class="error" id="adminRemarksError"></span>
+                </td>
+              </tr>
+            </table>
+          </fieldset>
+
+          <input type="submit" id="maintenanceSaveButton" class="btn" value="Update Maintenance">
+          <button type="button" class="btn btn-danger" onclick="resetMaintenanceForm()">Clear</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    &copy; 2026 Hotel Management System &middot; CSC 3215 Web Technologies
+  </footer>
+
+  <script src="js/Maintenance.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/data.js"></script>
+
+</body>
+</html>

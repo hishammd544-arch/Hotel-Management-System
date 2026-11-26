@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create a new account in the Hotel Management System">
+  <title>Sign Up | Hotel Management System</title>
+  <link rel="stylesheet" href="css/Admin.css">
+</head>
+<body>
+
+  <main class="auth-wrapper">
+    <div class="auth-card wide">
+      <div class="auth-header">
+        <img src="image/hotel logo.png" alt="Hotel Logo">
+        <h2>Create an Account</h2>
+        <p>Join Hotel Management System</p>
+      </div>
+
+      <div id="registerMessage" class="message"></div>
+
+      <form id="registerForm" onsubmit="return validateRegister()">
+        <fieldset>
+          <legend>Account Information</legend>
+          <table class="form-table">
+            <tr>
+              <td><label for="fullName">Full Name:</label></td>
+              <td>
+                <input type="text" id="fullName" placeholder="e.g. Your Name">
+                <span class="error" id="fullNameError"></span>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="email">Email Address:</label></td>
+              <td>
+                <input type="email" id="email" placeholder="name@hotel.com">
+                <span class="error" id="emailError"></span>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="phone">Phone Number:</label></td>
+              <td>
+                <input type="tel" id="phone" placeholder="01XXXXXXXXX">
+                <span class="error" id="phoneError"></span>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="username">Username:</label></td>
+              <td>
+                <input type="text" id="username" placeholder="At least 4 characters">
+                <span class="error" id="usernameError"></span>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="role">Select Your Role:</label></td>
+              <td>
+                <select id="role">
+                  <option value="">-- Choose Position --</option>
+                  <option value="Admin">Admin</option>
+                  <option value="Receptionist">Receptionist</option>
+                  <option value="Room Service">Room Service</option>
+                  <option value="Customer">Customer</option>
+                </select>
+                <span class="error" id="roleError"></span>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="password">Password:</label></td>
+              <td>
+                <input type="password" id="password" placeholder="At least 8 characters" onkeyup="showPasswordStrength()">
+                <span id="strengthText" class="hint"></span>
+                <span class="error" id="passwordError"></span>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="confirmPassword">Confirm Password:</label></td>
+              <td>
+                <input type="password" id="confirmPassword" placeholder="Re-enter your password">
+                <span class="error" id="confirmPasswordError"></span>
+              </td>
+            </tr>
+            <tr>
+              <td>Terms:</td>
+              <td>
+                <input type="checkbox" id="terms" onchange="toggleRegisterButton()">
+                <label for="terms" class="option-label">I agree to the Terms and Conditions</label>
+                <span class="error" id="termsError"></span>
+              </td>
+            </tr>
+          </table>
+        </fieldset>
+
+        <div class="auth-actions">
+          <input type="submit" id="registerButton" class="btn" value="Create Account" disabled>
+          <button type="button" class="btn btn-secondary" onclick="resetRegisterForm()">Reset</button>
+        </div>
+      </form>
+
+      <div class="auth-footer-link">
+        Already have an account? <a href="login.html">Login</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    &copy; 2026 Hotel Management System &middot; CSC 3215 Web Technologies
+  </footer>
+
+  <script src="js/Signin.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/data.js"></script>
+
+</body>
+</html>

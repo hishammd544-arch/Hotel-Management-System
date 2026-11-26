@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check-in/Check-out</title>
+    <link rel="stylesheet" href="css_receptionist/Receptionist.css">
+</head>
+<body>
+    <div id="hotel-navbar"></div>
+    <form method="post">
+        <table border="1">
+         <tr>
+            <td colspan="6">
+            <h2>Hotel Management System</h2>
+            <h3>Check-in/Check-out</h3>
+            </td>
+            </tr>
+            <tr>
+            <td colspan="3">
+              <input type="submit"value="Check-in">
+                    <input type="submit"value="Check-out">
+            </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                <label for="search">Search by Booking ID or Guest Name:</label>
+                <input type="text"id="search"name="search"placeholder="Enter Booking ID or Guest Name">
+            </td>
+            <td colspan="2">
+                <label for="filter">Filter:</label>
+                    <select id="filter"name="filter">
+                        <option>All</option>
+                 <option>Checked-in</option>
+                     <option>Checked-out</option>
+                        <option>Pending</option>
+                    </select>
+        </td>
+        </tr>
+            <tr>
+                <th>Booking ID</th>
+            <th>Guest Name</th>
+                <th>Room No</th>
+        <th>Check-in Date</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>BK-001</td>
+        <td>Guest One</td>
+            <td>101</td>
+        <td>31-10-2026</td>
+        <td>Checked-in</td>
+            <td>
+                 <input type="submit"value="Check-out">
+                </td>
+            </tr>
+            <tr>
+            <td>BK-002</td>
+         <td>Guest Two</td>
+        <td>203</td>
+            <td>03-11-2026</td>
+         <td>Checked-out</td>
+            <td>
+                  <input type="submit"value="Check-in">
+           </td>
+            </tr>
+        </table>
+    </form>
+<script src="js_receptionist/Navigation.js"></script>
+</body>
+</html>

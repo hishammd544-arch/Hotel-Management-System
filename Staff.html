@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Manage hotel employees and their information">
+  <title>Staff Management | Hotel Management System</title>
+  <link rel="stylesheet" href="css/Admin.css">
+</head>
+<body>
+
+  <header class="header">
+    <a href="Admin.html" class="logo">Hotel Management System</a>
+    <div class="user-info">
+      <span class="badge admin">Admin</span>
+      <span>Welcome, Admin</span>
+      <a href="login.html" class="btn btn-small btn-light">Logout</a>
+    </div>
+  </header>
+
+  <nav class="sidebar">
+    <h3>Main Menu</h3>
+    <a href="Admin.html">Dashboard</a>
+    <a href="Room.html">Room Management</a>
+    <a href="Staff.html" class="active">Staff Management</a>
+    <a href="Sales.html">Monthly Sales</a>
+    <a href="Complaints.html">Complaints</a>
+    <a href="Maintenance.html">Maintenance</a>
+    <a href="Reviews.html">Staff Reviews</a>
+  </nav>
+
+  <main class="container">
+
+    <section>
+      <h2 class="page-title">Staff Management</h2>
+      <p class="page-subtitle">Create, view, edit, delete and search hotel employees and their information.</p>
+    </section>
+
+    <div id="staffMessage" class="message"></div>
+
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <h3 id="staffFormTitle">Add New Staff</h3>
+          <form id="staffForm" onsubmit="return saveStaff()">
+            <fieldset>
+              <legend>Employee Details</legend>
+              <table class="form-table">
+                <tr>
+                  <td><label for="staffId">Staff ID:</label></td>
+                  <td>
+                    <input type="text" id="staffId" placeholder="e.g. S-001">
+                    <span class="error" id="staffIdError"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="staffName">Full Name:</label></td>
+                  <td>
+                    <input type="text" id="staffName" placeholder="e.g. Guest One">
+                    <span class="error" id="staffNameError"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="staffEmail">Email:</label></td>
+                  <td>
+                    <input type="email" id="staffEmail" placeholder="name@hotel.com">
+                    <span class="error" id="staffEmailError"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="staffPhone">Phone Number:</label></td>
+                  <td>
+                    <input type="tel" id="staffPhone" placeholder="01XXXXXXXXX">
+                    <span class="error" id="staffPhoneError"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="staffPosition">Position:</label></td>
+                  <td>
+                    <select id="staffPosition">
+                      <option value="">-- Select Position --</option>
+                      <option value="Manager">Manager</option>
+                      <option value="Receptionist">Receptionist</option>
+                      <option value="Room Service">Room Service</option>
+                      <option value="Housekeeping">Housekeeping</option>
+                      <option value="Security">Security</option>
+                    </select>
+                    <span class="error" id="staffPositionError"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="staffSalary">Monthly Salary (Tk):</label></td>
+                  <td>
+                    <input type="number" id="staffSalary" min="5000" placeholder="e.g. 25000">
+                    <span class="error" id="staffSalaryError"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="staffStatus">Employment Status:</label></td>
+                  <td>
+                    <select id="staffStatus">
+                      <option value="Active">Active</option>
+                      <option value="On Leave">On Leave</option>
+                      <option value="Inactive">Inactive</option>
+                    </select>
+                    <span class="error" id="staffStatusError"></span>
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+
+            <input type="submit" id="staffSaveButton" class="btn" value="Add Staff">
+            <button type="button" class="btn btn-secondary" onclick="resetStaffForm()">Cancel</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-wide">
+        <div class="card">
+          <h3>Staff Records</h3>
+          <div class="search-bar">
+            <input type="text" id="staffSearch" placeholder="Search by ID, name, email or phone..." onkeyup="renderStaff()">
+            <select id="staffPositionFilter" onchange="renderStaff()">
+              <option value="All">All positions</option>
+              <option value="Manager">Manager</option>
+              <option value="Receptionist">Receptionist</option>
+              <option value="Room Service">Room Service</option>
+              <option value="Housekeeping">Housekeeping</option>
+              <option value="Security">Security</option>
+            </select>
+            <select id="staffStatusFilter" onchange="renderStaff()">
+              <option value="All">Any status</option>
+              <option value="Active">Active</option>
+              <option value="On Leave">On Leave</option>
+              <option value="Inactive">Inactive</option>
+            </select>
+          </div>
+          <p class="result-count" id="staffCount"></p>
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Staff ID</th><th>Name</th><th>Position</th><th>Phone</th><th>Salary (Tk)</th><th>Status</th><th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="staffTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    &copy; 2026 Hotel Management System &middot; CSC 3215 Web Technologies
+  </footer>
+
+  <script src="js/Staff.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/data.js"></script>
+
+</body>
+</html>

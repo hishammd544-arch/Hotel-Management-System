@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Availability</title>
+    <link rel="stylesheet" href="css_receptionist/Receptionist.css">
+</head>
+<body>
+    <div id="hotel-navbar"></div>
+    <header>
+    <h2>Hotel Management System</h2>
+ <h3>Receptionist Panel</h3>
+    </header>
+    <main>
+   <h1>Room Categories & Services</h1>
+  <form method="post">
+     <table border="1"cellpadding="10">
+                <tr>
+               <td>
+         <input type="radio"name="room"value="Standard"required>
+                <label>Standard Room</label>
+            <br><br>
+                <img src="images_receptionist/pic2.jpg" alt="Standard room">
+         <br><br>
+         <p>Size:250 sq.ft.</p>
+            <p>Price:Tk. 2,500/night</p>
+            <p>Available Rooms:5</p>
+              <b>Services:</b>
+                        <ul>
+             <li>TV</li>
+            <li>WiFi</li>
+             <li>AC</li>
+            <li>Attached Bathroom</li>
+            </ul>
+     </td>
+        <td>
+        <input type="radio"name="room"value="Deluxe">
+             <label>Deluxe Room</label>
+                <br><br>
+                        <img src="images_receptionist/pic3.jpg" alt="Deluxe room">
+                <br><br>
+                <p>Size:400 sq.ft.</p>
+                <p>Price:Tk. 4,000/night</p>
+                 <p>Available Rooms:3</p>
+                <b>Services:</b>
+                <ul>
+                           <li>TV</li>
+                   <li>Mini Fridge</li>
+                           <li>AC</li>
+                 <li>Attached Bathroom</li>
+                </ul>
+             </td>
+        <td>
+                     <input type="radio"name="room"value="Suite">
+                 <label>Suite Room</label>
+                     <br><br>
+                  <img src="images_receptionist/pic2.jpg" alt="Suite room">
+                <br><br>
+                <p>Size:700 sq.ft.</p>
+                    <p>Price:Tk. 7,000/night</p>
+                <p>Available Rooms:2</p>
+                <b>Services:</b>
+                   <ul>
+                           <li>TV</li>
+                    <li>Sofa</li>
+                    <li>AC</li>
+                   <li>Attached Bathroom</li>
+                </ul>
+                    </td>
+                </tr>
+     </table>
+            <br><br>
+    <input type="submit"value="Next:Create Booking">
+        </form>
+    </main>
+    <footer>
+     <p>Hotel Management System-Receptionist Panel</p>
+    </footer>
+<script src="js_receptionist/Navigation.js"></script>
+</body>
+</html>

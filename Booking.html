@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Booking</title>
+    <link rel="stylesheet" href="css_receptionist/Receptionist.css">
+</head>
+<body>
+    <div id="hotel-navbar"></div>
+<h2>Hotel Management System</h2>
+    <h3>Create Booking</h3>
+    <form method="post">
+    <table border="1">
+        <tr>
+         <td colspan="2">
+          <h3>1.Select Room Category</h3>
+            </td>
+            </tr>
+        <tr>
+                <td>
+        <label>Room Category:</label>
+                </td>
+            <td>
+                <input type="radio"name="room"value="Standard"required>Standard
+            <input type="radio"name="room"value="Deluxe">Deluxe
+            <input type="radio"name="room"value="Suite">Suite
+                </td>
+    </tr>
+    <tr>
+        <td>
+     <label>Available Rooms:</label>
+    </td>
+    <td>
+  Standard:5<br>
+  Deluxe:3<br>
+    Suite:2
+    </td>
+            </tr>
+         <tr>
+                <td>
+               <label>Guest Type:</label>
+                </td>
+         <td>
+          <input type="radio"name="guest"value="Single"required>Single<br>
+      <input type="radio"name="guest"value="Couple">Couple<br>
+        <input type="radio"name="guest"value="Friends">Friends
+    </td>
+    </tr>
+    <tr>
+    <td colspan="2">
+    <h3>2.Guest Information</h3>
+    </td>
+    </tr>
+    <tr>
+     <td>
+        <label>Full Name:</label>
+                </td>
+        <td>
+         <input type="text"name="full name"placeholder="Enter full name"required>
+        </td>
+    </tr>
+    <tr>
+     <td>
+       <label>Phone:</label>
+     </td>
+     <td>
+     <input type="tel"name="phone"placeholder="Enter phone number"required>
+        </td>
+    </tr>
+  <tr>
+         <td>
+       <label>Email:</label>
+  </td>
+     <td>
+    <input type="email"name="email"placeholder="Enter email">
+    </td>
+    </tr>
+    <tr>
+        <td>
+        <label>Date of Birth:</label>
+        </td>
+     <td>
+     <input type="date"name="dob"required>
+    </td>
+ </tr>
+  <tr>
+     <td>
+    <label>NID:</label>
+    </td>
+        <td>
+     <input type="file"name="nid"required>
+    </td>
+    </tr>
+    <tr>
+ <td colspan="2">
+ <h3>Guest/Couple/Friends Information</h3>
+    </td>
+    </tr>
+     <tr>
+    <td>
+    <label>Guest 1 Name:</label>
+    </td>
+    <td>
+         <input type="text"name="guest1"placeholder="Enter name">
+    </td>
+    </tr>
+            <tr>
+     <td>
+      <label>Guest 1 NID:</label>
+      </td>
+                <td>
+            <input type="file"name="guest1nid">
+            </td>
+            </tr>
+            <tr>
+        <td>
+                    <label>Date of Birth:</label>
+                </td>
+       <td>
+                    <input type="date"name="guest1dob">
+          </td>
+            </tr>
+            <tr>
+      <td>
+     <label>Guest 2 NID:</label>
+                </td>
+         <td>
+          <input type="file"name="guest2nid">
+           </td>
+     </tr>
+            <tr>
+                <td>
+         <label>Guest 2 Name:</label>
+         </td>
+      <td>
+         <input type="text"name="guest2"placeholder="Enter name">
+      </td>
+     </tr>
+            <tr>
+         <td colspan="2">
+        <h3>4.Additional Services</h3>
+     </td>
+        </tr>
+     <tr>
+         <td>
+      <label>Airport Transfer Service ($1000):</label>
+     </td>
+          <td>
+    <input type="checkbox"name="airport"value="1000">Airport Transfer
+     </td>
+    </tr>
+     <tr>
+         <td>
+         <label>Service Type:</label>
+        </td>
+     <td>
+     <input type="radio"name="service"value="Pickup">Pickup
+     <input type="radio"name="service"value="Drop-off">Drop-off
+        </td>
+            </tr>
+            <tr>
+          <td colspan="2">
+                    <h3>5.Discount</h3>
+         </td>
+      </tr>
+    <tr>
+     <td>
+           <label>Regular Customer Discount (10%):</label>
+      </td>
+     <td>
+      <input type="checkbox"name="discount"value="10%">Regular Customer Discount
+            </td>
+     </tr>
+     <tr>
+       <td colspan="2">
+               <h3>6.Payment Method</h3>
+         </td>
+     </tr>
+         <tr>
+      <td>
+        <label>Payment Method:</label>
+  </td>
+        <td>
+      <input type="radio"name="payment"value="Cash" required>Cash
+      <input type="radio"name="payment"value="bKash">bKash
+     <input type="radio"name="payment"value="Card">Card
+                </td>
+ </tr>
+            <tr>
+    <td colspan="2"align="center">
+       <input type="submit"value="Bill">
+      </td>
+            </tr>
+        </table>
+    </form>
+<script src="js_receptionist/Navigation.js"></script>
+</body>
+</html>

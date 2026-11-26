@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Admin dashboard of the Hotel Management System">
+  <title>Admin Dashboard | Hotel Management System</title>
+  <link rel="stylesheet" href="css/Admin.css">
+</head>
+<body>
+
+  <header class="header">
+    <a href="Admin.html" class="logo">Hotel Management System</a>
+    <div class="user-info">
+      <span class="badge admin">Admin</span>
+      <span>Welcome, Admin</span>
+      <a href="login.html" class="btn btn-small btn-light">Logout</a>
+    </div>
+  </header>
+
+  <nav class="sidebar">
+    <h3>Main Menu</h3>
+    <a href="Admin.html" class="active">Dashboard</a>
+    <a href="Room.html">Room Management</a>
+    <a href="Staff.html">Staff Management</a>
+    <a href="Sales.html">Monthly Sales</a>
+    <a href="Complaints.html">Complaints</a>
+    <a href="Maintenance.html">Maintenance</a>
+    <a href="Reviews.html">Staff Reviews</a>
+  </nav>
+
+  <main class="container">
+
+    <section>
+      <h2 class="page-title">Admin Dashboard</h2>
+      <p class="page-subtitle">Manage hotel rooms, staff and customer activities.
+        <span id="reportTime" class="hint"></span>
+      </p>
+    </section>
+
+    <section>
+      <h3 class="page-title">Hotel Overview</h3>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Total Rooms</div>
+          <div class="stat-number" id="statRooms">0</div>
+          <a href="Room.html" class="btn btn-small">Manage Rooms</a>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">Total Staff</div>
+          <div class="stat-number" id="statStaff">0</div>
+          <a href="Staff.html" class="btn btn-small">Manage Staff</a>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">Monthly Revenue (Tk)</div>
+          <div class="stat-number" id="statRevenue">0</div>
+          <a href="Sales.html" class="btn btn-small">View Sales</a>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">Total Complaints</div>
+          <div class="stat-number" id="statComplaints">0</div>
+          <a href="Complaints.html" class="btn btn-small">View Complaints</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="card">
+        <h3>Recent Customer Complaints</h3>
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Complaint ID</th><th>Room</th><th>Complaint</th><th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="complaintTableBody"></tbody>
+          </table>
+        </div>
+        <a href="Complaints.html" class="btn">View All Complaints</a>
+      </div>
+    </section>
+
+    <section>
+      <div class="card">
+        <h3>Maintenance Overview</h3>
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Report ID</th><th>Damaged Item</th><th>Room</th><th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="maintenanceTableBody"></tbody>
+          </table>
+        </div>
+        <a href="Maintenance.html" class="btn">View Maintenance Requests</a>
+      </div>
+    </section>
+
+    <section>
+      <div class="card">
+        <h3>Staff Performance</h3>
+        <p>Overall Staff Rating: <strong id="staffRating">0%</strong></p>
+        <p>Negative Reviews: <strong id="negativeReviews">0</strong></p>
+        <a href="Reviews.html" class="btn">Review Staff Performance</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    &copy; 2026 Hotel Management System &middot; CSC 3215 Web Technologies
+  </footer>
+  <script src="js/Admin.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/data.js"></script>
+
+</body>
+</html>

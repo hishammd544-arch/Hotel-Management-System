@@ -1,0 +1,40 @@
+HOTEL MANAGEMENT SYSTEM - QUICK START
+
+1. Extract this ZIP file.
+2. Open the extracted Hotel_Management_System_READY folder in Visual Studio Code:
+   File > Open Folder.
+3. Install the VS Code extension named "Live Server" (if it is not installed).
+4. In the VS Code Explorer, open login.html.
+5. Right-click inside login.html and choose "Open with Live Server".
+6. Use the demo credentials below to open each role dashboard.
+
+DEMO LOGIN
+Admin:         username admin          password Admin123
+Receptionist:  username receptionist   password receptionist
+Room Service:  username staff          password staff
+Customer:      username customer       password Customer
+
+Select the matching role from the role dropdown.
+
+TEAM WORK AREAS
+Person 1 - Admin: Admin.html, Room.html, Staff.html, Sales.html,
+           Complaints.html, Maintenance.html, Reviews.html, css/Admin.css, js/
+Person 2 - Receptionist: Receptionist Dashboard.html, Management.html,
+           Booking.html, Bill.html, Airport.html, Check-inCheck-out.html,
+           RoomAvailability.html, js_receptionist/, css_receptionist/, images_receptionist/
+Person 3 - Room Service: room_service_dashboard.html, food_order.html, room_issue.html,
+           traycollection.html, amenities.html, JavaScript/, css_room_service/, images_room_service/
+Person 4 - Customer: Dashboard_Customer.html, roombooking.html, mybookings.html,
+           payment.html, feedbackcomplaints.html, lostfound.html, customer_JS/,
+           css_customer/, image/
+
+IMPORTANT NOTES
+- Keep the folders and files in their current relative locations. Do not move individual
+  HTML/CSS/JS/image files, because the pages refer to one another using relative paths.
+- Open the whole folder, not just one HTML file, in VS Code.
+- This supplied project is a front-end HTML/CSS/JavaScript project. It does not contain
+  an ASP.NET/C# backend or a database server. Some demo data is stored in browser storage.
+- The ZIP contains the original project pages and assets. Test each role and page before
+  submitting; some original features may still need integration or correction.
+
+NOTE: This is a front-end demo. Sign-up data is stored only in this browser (localStorage); no C# backend or database is included.

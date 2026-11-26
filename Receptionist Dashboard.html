@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receptionist Dashboard</title>
+    <link rel="stylesheet" href="css_receptionist/Receptionist.css">
+</head>
+<body>
+     <tr>
+       <td width="80%"valign="top">
+            <h1>Receptionist Dashboard</h1>
+                <hr>
+            <h2>ReceptionistDashboard Overview</h2>
+            <table border="1"width="100%"cellpadding="15">
+            <tr>
+                 <th>Total Bookings</th>
+                     <th>Checked-in Today</th>
+                        <th>Checked-out Today</th>
+                        <th>Available Rooms</th>
+            </tr>
+            <tr>
+                <td align="center">
+                 <h2>12</h2>
+                </td>
+                <td align="center">
+                <h2>6</h2>
+                </td>
+                    <td align="center">
+                     <h2>4</h2>
+                        </td>
+                        <td align="center">
+                            <h2>8</h2>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <hr>
+                <h2>Search Booking</h2>
+                <form method="post">
+                    <label for="search">Search by Booking ID, Guest Name or Room Number:</label>
+                    <input type="text"id="search"name="search"placeholder="Enter Booking ID or Guest Name">
+                    <input type="submit"value="Search">
+      </form>
+         <hr>
+            <h2>Recent Bookings</h2>
+                <table border="1"width="100%"cellpadding="10">
+                    <tr>
+                    <th>Booking ID</th>
+                        <th>Guest Name</th>
+                     <th>Room No</th>
+                     <th>Check-in</th>
+                        <th>Check-out</th>
+                    <th>Status</th>
+                    </tr>
+     <tr>
+        <td>BK-00</td>
+         <td>Guest One</td>
+        <td>101</td>
+          <td>31 October 2026</td>
+            <td>02 November 2026</td>
+        <td>Confirmed</td>
+        </tr>
+         <tr>
+         <td>BK-002</td>
+        <td>Guest Two</td>
+        <td>203</td>
+        <td>31 October 2026</td>
+            <td>03 November 2026</td>
+            <td>Checked-in</td>
+        </tr>
+        </table>
+         <p>Total Bookings:2</p>
+         <hr>
+        </td>
+        </tr>
+    </table>
+<script src="js_receptionist/Navigation.js"></script>
+</body>
+</html>

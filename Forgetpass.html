@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Reset password for the Hotel Management System">
+  <title>Forgot Password | Hotel Management System</title>
+  <link rel="stylesheet" href="css/Admin.css">
+</head>
+<body>
+
+  <main class="auth-wrapper">
+    <div class="auth-card">
+      <div class="auth-header">
+        <img src="image/hotel logo.png" alt="Hotel Logo">
+        <h2>Reset Password</h2>
+        <p>Enter your registered email and set a new password</p>
+      </div>
+
+      <div id="forgotMessage" class="message"></div>
+
+      <form id="forgotForm" onsubmit="return validateForgotPassword()">
+        <fieldset>
+          <legend>Password Recovery</legend>
+          <table class="form-table">
+            <tr>
+              <td><label for="resetEmail">Registered Email:</label></td>
+              <td>
+                <input type="email" id="resetEmail" placeholder="Enter your registered email">
+                <span class="error" id="resetEmailError"></span>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="newPassword">New Password:</label></td>
+              <td>
+                <input type="password" id="newPassword" placeholder="At least 8 characters" onkeyup="showForgotPasswordStrength()">
+                <span id="forgotStrengthText" class="hint"></span>
+                <span class="error" id="newPasswordError"></span>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="confirmNewPassword">Confirm Password:</label></td>
+              <td>
+                <input type="password" id="confirmNewPassword" placeholder="Re-enter new password">
+                <span class="error" id="confirmNewPasswordError"></span>
+              </td>
+            </tr>
+          </table>
+        </fieldset>
+
+        <div class="auth-actions">
+          <input type="submit" class="btn" value="Reset Password">
+          <button type="button" class="btn btn-secondary" onclick="resetForgotForm()">Clear</button>
+        </div>
+      </form>
+
+      <div class="auth-footer-link">
+        Remembered your password? <a href="login.html">Back to Login</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    &copy; 2026 Hotel Management System &middot; CSC 3215 Web Technologies
+  </footer>
+
+  <script src="js/login.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/data.js"></script>
+
+</body>
+</html>
